@@ -33,9 +33,11 @@ function apply(styleElement, options, obj) {
   const sourceMap = obj.sourceMap;
 
   if (sourceMap && typeof btoa !== "undefined") {
-    css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(
+    css += "\n/";
+    css += `*# sourceMappingURL=data:application/json;base64,${btoa(
       unescape(encodeURIComponent(JSON.stringify(sourceMap)))
-    )} */`;
+    )} *`;
+    css += "/";
   }
 
   // For old IE
